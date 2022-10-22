@@ -3,7 +3,15 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
 driver = webdriver.Firefox()
-driver.get("http://www.python.org")
+driver.get("http://www.glassdoor.com")
+link = driver.find_element_by_link_text('Jobs')
+link.click()
+#try:
+#    element = WebDriverWait(driver,10).until(
+#            EC.presence_of_element_located((By.LINK_TEXT, "Accept Cookies"))
+#            )
+#finally:
+   # driver.quit
 assert "Python" in driver.title
 elem = driver.find_element(By.NAME, "q")
 elem.clear()
