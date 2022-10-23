@@ -12,6 +12,7 @@ link.click()
 #            )
 #finally:
    # driver.quit
+driver.back()
 assert "Python" in driver.title
 elem = driver.find_element(By.NAME, "q")
 elem.clear()
