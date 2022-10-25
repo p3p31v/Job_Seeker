@@ -3,20 +3,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
 driver = webdriver.Firefox()
-driver.get("http://www.glassdoor.com")
-link = driver.find_element_by_link_text('Jobs')
+driver.get("https://www.google.com/intl/es-419/gmail/about/")
+link = driver.find_element_by_xpath('/html/body/header/div/div/div/a[3]/span[2]')
 link.click()
-#try:
-#    element = WebDriverWait(driver,10).until(
-#            EC.presence_of_element_located((By.LINK_TEXT, "Accept Cookies"))
-#            )
-#finally:
-   # driver.quit
-driver.back()
-assert "Python" in driver.title
-elem = driver.find_element(By.NAME, "q")
-elem.clear()
-elem.send_keys("pycon")
-elem.send_keys(Keys.RETURN)
-assert "No results found." not in driver.page_source
-driver.close()
