@@ -1,7 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-
+import random
+ran = random.randrange(10000)
 driver = webdriver.Firefox()
 driver.get("https://www.google.com/intl/es-419/gmail/about/")
 link = driver.find_element_by_xpath('/html/body/header/div/div/div/a[3]/span[2]')
@@ -17,7 +18,7 @@ element = driver.find_element(By.CSS_SELECTOR,"#lastName")
 element.send_keys("Perez")
 element.send_keys(Keys.TAB)
 element = driver.find_element(By.CSS_SELECTOR,"#username")
-element.send_keys("nicomaduro4815")
+element.send_keys("nicomaduro"+str(ran))
 element.send_keys(Keys.TAB)
 element = driver.find_element(By.NAME,("Passwd"))
 element.send_keys("Z0013497BD3D9p3p")
