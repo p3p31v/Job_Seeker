@@ -1,2 +1,1 @@
-
-bonna tarda
+Program to look for a job in glassdoor automatically.
