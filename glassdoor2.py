@@ -34,8 +34,25 @@ element = driver.find_element(By.CSS_SELECTOR, '.mr-xxsm')
 element.click()
 driver.implicitly_wait(10)
 element = driver.find_element(By.XPATH, '/html/body/div[2]/div/div/div/div/div[2]/section/article/div[1]/ul/li[2]/div[2]/a')
-print(element.get_attribute('href'))
 
-#element2 = driver.find_element(By.XPATH,'/html/body/div[2]/div/div/div/div/div[2]/section/article/div[1]/ul/li[3]/div[2]/a')
+links = []
 
-#element3 = driver.find_element(By.XPATH,'/html/body/div[2]/div/div/div/div/div[2]/section/article/div[1]/ul/li[30]/div[2]/a'
+for i in range(1,31):
+    element2 = driver.find_element(By.XPATH,'/html/body/div[2]/div/div/div/div/div[2]/section/article/div[1]/ul/li['+str(i)+']/div[2]/a')
+    element3 = driver.find_element(By.XPATH,'/html/body/div[2]/div/div/div/div/div[2]/section/article/div[1]/ul/li['+str(i)+']')
+    if element3.get_attribute('data-is-easy-apply')=='true':
+        links.append(element2.get_attribute('href'))
+
+for link in links:
+    print(link)
+    driver.get(link)
+    iframe = driver.find_element_by_tag_name('iframe')
+    print(iframe)
+   # driver.implicitly_wait(10)
+   # driver.switch_to_frame(iframe)
+   # driver.implicitly_wait(10)
+   # element = driver.find_element(By.CSS_SELECTOR,'svg.Bz112c:nth-child(2) > path:nth-child(1)')
+   # element.click()
+   #driver.switch_to.default_content()
+   # element = driver.find_element(By.XPATH, '/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div/div[1]/button')
+   # element.click()
