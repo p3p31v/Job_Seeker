@@ -46,13 +46,22 @@ for i in range(1,31):
 for link in links:
     print(link)
     driver.get(link)
-    iframe = driver.find_element_by_tag_name('iframe')
-    print(iframe)
-   # driver.implicitly_wait(10)
-   # driver.switch_to_frame(iframe)
-   # driver.implicitly_wait(10)
-   # element = driver.find_element(By.CSS_SELECTOR,'svg.Bz112c:nth-child(2) > path:nth-child(1)')
-   # element.click()
-   #driver.switch_to.default_content()
-   # element = driver.find_element(By.XPATH, '/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/div[2]/div/div[2]/div/div/div[1]/button')
-   # element.click()
+    try:
+
+        iframe = driver.find_element(By.CSS_SELECTOR, '#credential_picker_container > iframe:nth-child(1)')
+        print(iframe.get_attribute('src'))
+        driver.switch_to.frame(iframe)
+        driver.implicitly_wait(10)
+        element = driver.find_element(By.CSS_SELECTOR,'svg.Bz112c:nth-child(2) > path:nth-child(1)')
+        element.click()
+        driver.implicitly_wait(10)
+        driver.switch_to.default_content()
+    except:
+        print('No hay popup')
+
+    element = driver.find_element(By.CSS_SELECTOR, '.applyButton')
+    element.click()
+    driver.implicitly_wait(10)
+
+   # element = driver.find_element(By.CSS_SELECTOR, 'html body.is-white div#ia-container div.ia-FlexContainer div#ia-ApplyFormScreen.ia-ApplyFormScreen div form div div div.ia-ApplyFormScreen-userFields div.ia-UserFields div.ia-UserFields-secondary div.ia-UserFields-fragment div div.UserField-Name div.ia-TextInput div.icl-TextInput div.icl-TextInput-wrapper')
+   # element.send_keys('Jose Luis')
