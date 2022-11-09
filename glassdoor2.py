@@ -1,9 +1,18 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
 import random
 import time
+
+options = Options()
+ua = UserAgent()
+userAgent = ua.random
+print(userAgent)
+options.add_argument(f'user-agent={userAgent}')
+
 def login_glassdoor():
     driver = webdriver.Firefox()
     driver.get("https://www.glassdoor.com/about/terms.htm")
@@ -66,26 +75,40 @@ for link in links:
     element.click()
     driver.implicitly_wait(10)
     time.sleep(10)
-    iframe = driver.find_element(By.XPATH, '//iframe[@title = "Job application form container"]')
-    print(iframe.get_attribute('src'))
-    driver.switch_to.frame(iframe)
-    time.sleep(10)
-    iframe2 = driver.find_element(By.XPATH, '//iframe[@title="Job application form"]')
-    driver.switch_to.frame(iframe2)
-    time.sleep(10)
-    element = driver.find_element(By.ID, "input-applicant.firstName")
+    try:
+        iframe = driver.find_element(By.XPATH, '//iframe[@title = "Job application form container"]')
+        print(iframe.get_attribute('src'))
+        driver.switch_to.frame(iframe)
+        time.sleep(10)
+        iframe2 = driver.find_element(By.XPATH, '//iframe[@title="Job application form"]')
+        driver.switch_to.frame(iframe2)
+        time.sleep(10)
+        element = driver.find_element(By.ID, "input-applicant.firstName")
    # element = driver.find_element(By.NAME,'application_form')
    # driver.switch_to.frame(element)
-    element.send_keys('Jose Luis')
-    element = driver.find_element(By.ID, "input-applicant.lastName")
-    element.send_keys('Cordoba Cabanillas')
-    element = driver.find_element(By.ID,"input-applicant.email")
-    element.send_keys('parradojose77@gmail.com')
-    element = driver.find_element(By.ID,"input-applicant.phoneNumber")
-    element.send_keys('17642934122')
-    element = driver.find_element(By.ID,"ia-CustomFilePicker-resume")
-   # element.click()
-    time.sleep(5)
+        element.send_keys('Jose Luis')
+        element = driver.find_element(By.ID, "input-applicant.lastName")
+        element.send_keys('Cordoba Cabanillas')
+        element = driver.find_element(By.ID,"input-applicant.email")
+        element.send_keys('parradojose77@gmail.com')
+        element = driver.find_element(By.ID,"input-applicant.phoneNumber")
+        element.send_keys('17642934122')
+        element = driver.find_element(By.ID,"ia-CustomFilePicker-resume")
+        element.send_keys("/home/jose/Downloads/MODIF_CV_JoseLuisCordobaCabanillas inglés(1).pdf")
+        element = driver.find_element(By.ID, "form-action-continue")
+        element.click()
+        time.sleep(20)
+    except:
+        #iframe = driver.find_element(By.XPATH, '//iframe[@title = "Job application form container"]')
+       # print(iframe.get_attribute('src'))
+        #driver.switch_to.frame(iframe)
+       # time.sleep(10)
+        #iframe2 = driver.find_element(By.XPATH, '//iframe[@title="Job application form"]')
+       # driver.switch_to.frame(iframe2)
+       # time.sleep(10)
+        element = driver.find_element(By.ID, 'input-applicant.name')
+        element.send_keys('Jose Luis Cordoba Cabanillas')
+
 
    # driver.switch_to.default_content()
    # element = driver.find_element(By.CSS_SELECTOR, 'html body.is-white div#ia-container div.ia-FlexContainer div#ia-ApplyFormScreen.ia-ApplyFormScreen div form div div div.ia-ApplyFormScreen-userFields div.ia-UserFields div.ia-UserFields-secondary div.ia-UserFields-fragment div div.UserField-Name div.ia-TextInput div.icl-TextInput div.icl-TextInput-wrapper')
