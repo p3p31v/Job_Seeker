@@ -33,7 +33,7 @@ def login_glassdoor():
     element = driver.find_element(By.CSS_SELECTOR, '.e3i3eoo2')
     element.click()
     element = driver.find_element(By.CSS_SELECTOR,'#modalUserPassword')
-    element.send_keys('Z0013497BD3D9p3p')
+    element.send_keys('********')
     element = driver.find_element(By.CSS_SELECTOR, 'button.gd-ui-button:nth-child(1)')
     element.click()
     driver.implicitly_wait(10)
@@ -97,6 +97,11 @@ for link in links:
         element.send_keys("/home/jose/Downloads/MODIF_CV_JoseLuisCordobaCabanillas inglés(1).pdf")
         element = driver.find_element(By.ID, "form-action-continue")
         element.click()
+        try:
+            element = driver.find_element(By.CSS_SELECTOR, '#input-q_f7a42fe7211f98ac7a60a285ac3a9e87')
+            element.send_keys('17642934122')
+        except:
+            print('No se ha encontrado')
         time.sleep(20)
     except:
         #iframe = driver.find_element(By.XPATH, '//iframe[@title = "Job application form container"]')
@@ -108,8 +113,22 @@ for link in links:
        # time.sleep(10)
         element = driver.find_element(By.ID, 'input-applicant.name')
         element.send_keys('Jose Luis Cordoba Cabanillas')
+        element = driver.find_element(By.ID,'input-applicant.email')
+        element.send_keys('jluis.cordoba.cabanillas@gmail.com')
+        element = driver.find_element(By.ID, 'input-applicant.phoneNumber')
+        element.send_keys('017642934122')
+        element = driver.find_element(By.NAME, 'applicant.fileUpload')
+        element.send_keys("/home/jose/Downloads/MODIF_CV_JoseLuisCordobaCabanillas inglés(1).pdf")
+       # element = driver.find_element(By.CSS_SELECTOR,'.icl-Button--transparent')
+## el elemento es de hacer click y luego escribir.
+        #element.send_keys("/home/jose/Downloads/Job_Application_Cover_letter_junior_software_devv.pdf")
+
+        element = driver.find_element(By.ID,'form-action-continue')
+        element.click()
+        time.sleep(20)
 
 
    # driver.switch_to.default_content()
    # element = driver.find_element(By.CSS_SELECTOR, 'html body.is-white div#ia-container div.ia-FlexContainer div#ia-ApplyFormScreen.ia-ApplyFormScreen div form div div div.ia-ApplyFormScreen-userFields div.ia-UserFields div.ia-UserFields-secondary div.ia-UserFields-fragment div div.UserField-Name div.ia-TextInput div.icl-TextInput div.icl-TextInput-wrapper')
    # element.send_keys('Jose Luis')
+
