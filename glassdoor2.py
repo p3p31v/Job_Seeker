@@ -4,8 +4,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.support.select import Select
 import random
 import time
+import requests
+
+#proxies = {'http': 'http://209.146.105.241:80'}
+#response = requests.get('http://httpbin.org/ip', proxies=proxies)
+#print(response.json()['origin']) # 190.64.18.162
 
 options = Options()
 ua = UserAgent()
@@ -98,8 +104,13 @@ for link in links:
         element = driver.find_element(By.ID, "form-action-continue")
         element.click()
         try:
-            element = driver.find_element(By.CSS_SELECTOR, '#input-q_f7a42fe7211f98ac7a60a285ac3a9e87')
-            element.send_keys('17642934122')
+            select = Select(driver.find_element_by_id('select-0'))
+            select.select_by_value('DE')
+        except:
+            print('oh, sielos')
+        try:
+            element = driver.find_element(By.ID, 'form-action-continue')
+            element.click()
         except:
             print('No se ha encontrado')
         time.sleep(20)
@@ -125,8 +136,12 @@ for link in links:
 
         element = driver.find_element(By.ID,'form-action-continue')
         element.click()
-        time.sleep(20)
-
+        time.sleep(5)
+        try:
+            element.find_element(By.ID,'form-action-continue')
+            element.click()
+        except:
+            print('No se ha encontrado numero')
 
    # driver.switch_to.default_content()
    # element = driver.find_element(By.CSS_SELECTOR, 'html body.is-white div#ia-container div.ia-FlexContainer div#ia-ApplyFormScreen.ia-ApplyFormScreen div form div div div.ia-ApplyFormScreen-userFields div.ia-UserFields div.ia-UserFields-secondary div.ia-UserFields-fragment div div.UserField-Name div.ia-TextInput div.icl-TextInput div.icl-TextInput-wrapper')
