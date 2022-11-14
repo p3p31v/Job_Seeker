@@ -111,8 +111,23 @@ for link in links:
         try:
             element = driver.find_element(By.ID, 'form-action-continue')
             element.click()
+            element = driver.find_element(By.ID, 'form-action-continue')
+            time.sleep(2)
+            element.click()
         except:
             print('No se ha encontrado')
+        try:
+            element = driver.find_element(By.ID,'radio-option-1')
+            element.click()
+            element = driver.find_element(By.ID, 'form-action-continue')
+            element.click()
+            element=driver.find_element(By.ID,'form-action-submit')
+            time.sleep(2)
+            element.click()
+            element = driver.find_element(By.CSS_SELECTOR, '.recaptcha-checkbox-checkmark')
+            element.click()
+        except:
+            print('po no')
         time.sleep(20)
     except:
         #iframe = driver.find_element(By.XPATH, '//iframe[@title = "Job application form container"]')
@@ -146,4 +161,8 @@ for link in links:
    # driver.switch_to.default_content()
    # element = driver.find_element(By.CSS_SELECTOR, 'html body.is-white div#ia-container div.ia-FlexContainer div#ia-ApplyFormScreen.ia-ApplyFormScreen div form div div div.ia-ApplyFormScreen-userFields div.ia-UserFields div.ia-UserFields-secondary div.ia-UserFields-fragment div div.UserField-Name div.ia-TextInput div.icl-TextInput div.icl-TextInput-wrapper')
    # element.send_keys('Jose Luis')
-
+#ID necesarias para tablas:
+#desde cuando id="input-q_24cb1ebdea2127f0026a34c78edf7715"
+#Gehalt input-q_eea1aff4b449f5127f619e978678cb0a
+#por que quieres entrar en la empresa x 3 setze textarea-q_1b126618b99b4bb38c8462627cfc3423
+#
