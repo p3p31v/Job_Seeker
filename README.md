@@ -31,8 +31,8 @@ python3 glassdoor3.py
 
 * [Mozilla](http://www.mozilla.org) - The navigator used
 * [Selenium webdriver](https://www.selenium.dev/documentation/webdriver/) - Webdriver tool
-* [Python]https://www.python.org/downloads/(https://www.python.org/downloads/) - Porgramming language
+* [Python](https://www.python.org/downloads/) - Porgramming language
 
 ## Authors
 
-* **Jose Luis Cordoba Cabanillas** - *Initial work* - [p3p31v](https://github.com/p3p31v)
+* **Jose Luis Cordoba Cabanillas** - [p3p31v](https://github.com/p3p31v)
