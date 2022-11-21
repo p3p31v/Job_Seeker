@@ -31,7 +31,7 @@ python3 glassdoor3.py
 
 * [Mozilla](http://www.mozilla.org) - The navigator used
 * [Selenium webdriver](https://www.selenium.dev/documentation/webdriver/) - Webdriver tool
-* [Python]h(https://www.python.org/downloads/) - Porgramming language
+* [Python]https://www.python.org/downloads/(https://www.python.org/downloads/) - Porgramming language
 
 ## Authors
 
