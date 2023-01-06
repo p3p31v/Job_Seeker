@@ -17,7 +17,8 @@ Alternately, you can download the source distribution from PyPI (e.g. selenium-4
 ```
 python3 setup.py install
 ```
-
+To solve the captcha after each application. An extension called google reCAPTCHA must be installed on your browser
+```
 ## Running the program
 To run the program we might select the glassdoor link with the corresponding filters and change it according to our specifications. It is important as well to specify the root where we have our CV and out personal data in order to send it to the employers. To edit the lines we can use vim editor:
 ```
